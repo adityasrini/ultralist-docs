@@ -1,0 +1,24 @@
+pre.todo {
+  padding: 20px;
+  white-space: pre;
+}
+
+.group {
+  color: #75b5aa;
+}
+
+.num {
+  color: #f4bf75;
+}
+
+.date {
+  color: #6a9fb5;
+}
+
+.proj {
+  color: #aa759f;
+}
+
+.cont {
+  color: #ac4142;
+}
