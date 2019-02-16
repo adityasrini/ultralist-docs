@@ -1,4 +1,4 @@
-# Intro to Ultralist {#what}
+# What is Ultralist? {#what}
 
 Ultralist is a task management system for technical people.  It includes a command-line component that is very fast and stays out of the way.  There is also a beautiful webapp that seamlessly syncs with the command-line.
 
@@ -10,7 +10,7 @@ The `ultralist` binary is free and open-source.
 
 * On Mac OS:  `brew install ultralist`
 * For other systems, you can get the binary directly from the [Ultralist Github releases page](https://github.com/ultralist/ultralist/releases).
-* If you have `go` installed, you can run `go install github.com/ultralist/ultralist`.
+* If you have `go` installed, you can run `go get github.com/ultralist/ultralist`.
 
 # Overview {#overview}
 
@@ -22,7 +22,8 @@ that sits on the command-line and stays out of your way.
 
 Ultralist has **2 major components:**
 
-* The open-source, command-line app.
+* The `ultralist` command-line app, which is free and [open
+source](https://github.com/ultralist/ultralist).
 * The [ultralist.io](https://app.ultralist.io/login) service, which includes a webapp, phone apps (coming soon),
 and seamless syncing across all devices.  
 
@@ -30,7 +31,7 @@ Ultralist.io is currently in a free public beta, but will be a paid service at s
 
 # Ultralist concepts {#concepts}
 
-An Ultralist todolist has a few concepts to be aware of:
+Since Ultralist implements a version of GTD, it has similar concepts:
 
 #### Contexts
 
@@ -43,7 +44,7 @@ in order to accomplish this?".  Contexts are denoted with an `@` symbol.
 * `@call garage about car repair`
 * `@email my question about the project update`
 
-#### Contexts
+#### Projects
 
 _Projects_ are defined as outcomes that will require more than one action step
 to complete.  So, a project may have multiple todo items.
@@ -58,3 +59,18 @@ to complete.  So, a project may have multiple todo items.
 Due dates are critical to Ultralist, and are a first-class citizen.  This is what separates Ultralist from other projects like [Todo.txt](http://todotxt.org/).
 
 Due dates are dates, without times.  They allow you to see what is on your agenda for the day.
+
+Ultralist does not try to dictate your exact schedule, and therefore a todo's
+due date does _not_ include a specific time.  However, you can prioritize todos
+so that they take precedence over other todos.
+
+#### Prioritization
+
+You can prioritize a todo.  This will make it show as bold in the CLI, and
+denotes that this todo is more important than others.
+
+#### Archiving
+
+Once todos are completed, you can archive them.  They won't show up anymore when listing todos.
+
+
