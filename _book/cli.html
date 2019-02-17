@@ -59,8 +59,6 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="cli.html" />
-    
     
     <link rel="prev" href="quickstart.html" />
     
@@ -189,20 +187,21 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="cli.html">
+        <li class="chapter " data-level="1.3.1" >
             
-                <a href="cli.html#create_todolist">
+                <span>
             
                     
-                    Creating a todolist
+                    Todo Management
             
-                </a>
+                </span>
             
 
             
-        </li>
+            <ul class="articles">
+                
     
-        <li class="chapter " data-level="1.3.2" data-path="cli.html">
+        <li class="chapter " data-level="1.3.1.1" data-path="cli.html">
             
                 <a href="cli.html#adding_todos">
             
@@ -215,7 +214,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="cli.html">
+        <li class="chapter " data-level="1.3.1.2" data-path="cli.html">
             
                 <a href="cli.html#completing_todos">
             
@@ -228,7 +227,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" data-path="cli.html">
+        <li class="chapter " data-level="1.3.1.3" data-path="cli.html">
             
                 <a href="cli.html#archiving_todos">
             
@@ -241,46 +240,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.5" data-path="cli.html">
-            
-                <a href="cli.html#editing_todos">
-            
-                    
-                    Editing todos
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.6" data-path="cli.html">
-            
-                <a href="cli.html#deleting_todos">
-            
-                    
-                    Deleting todos
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.7" data-path="cli.html">
-            
-                <a href="cli.html#listing_todos">
-            
-                    
-                    Listing, filtering and grouping todos
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.8" data-path="cli.html">
+        <li class="chapter " data-level="1.3.1.4" data-path="cli.html">
             
                 <a href="cli.html#prioritizing_todos">
             
@@ -293,7 +253,91 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.9" data-path="cli.html">
+        <li class="chapter " data-level="1.3.1.5" data-path="cli.html">
+            
+                <a href="cli.html#deleting_todos">
+            
+                    
+                    Deleting todos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.6" data-path="cli.html">
+            
+                <a href="cli.html#editing_todos">
+            
+                    
+                    Editing todos
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" >
+            
+                <span>
+            
+                    
+                    Todo List Management
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="cli.html">
+            
+                <a href="cli.html#create_todolist">
+            
+                    
+                    Creating a todolist
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="cli.html">
+            
+                <a href="cli.html#listing_todos">
+            
+                    
+                    Listing, filtering and grouping todos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="cli.html">
+            
+                <a href="cli.html#archiving_completed">
+            
+                    
+                    Archiving Completed todos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="cli.html">
             
                 <a href="cli.html#gc">
             
@@ -306,7 +350,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.10" data-path="cli.html">
+        <li class="chapter " data-level="1.3.2.5" data-path="cli.html">
             
                 <a href="cli.html#todos_json">
             
@@ -316,6 +360,11 @@
                 </a>
             
 
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -454,9 +503,6 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="using-the-ultralist-cli">Using the Ultralist CLI</h1>
-<h2 id="create_todolist">Creating a todolist </h2>
-<p>You can initialize a todolist by running <code>ultralist init</code>. This will create a <code>.todos.json</code> in the directory you are in.</p>
-<p><strong>The todolist in your home directory is special.</strong> <code>ultralist</code> will use the list in your home dir if it does not see a .todos.json in the directory you are in. This allows you to manage your main todolist file even if you are in another directory.</p>
 <h2 id="adding_todos">Adding todos </h2>
 <p>Add a todo by running <code>ultralist add</code> or <code>ultralist a</code>, and then filling out the details of the todo.</p>
 <p>A <code>+project</code> or <code>@context</code> can be inserted into the todo body. Currently they can only be one word long.</p>
@@ -467,7 +513,7 @@
 <p>For specific dates, you can use either <code>due may 2</code> or <code>due 2 may</code>. The month is always lowercase and 3 letters.</p>
 <h5 id="examples">Examples</h5>
 <p><img src="images/adding_todos.png" alt=""></p>
-<h2 id="completinging_todos">Completing/Uncompleting todos </h2>
+<h2 id="completing_todos">Completing/Uncompleting todos </h2>
 <ul>
 <li><code>ultralist complete [id]</code> or <code>ultralist c [id]</code> - complete a todo</li>
 <li><code>ultralist uncomplete [id]</code> or <code>ultralist uc [id]</code> - un-complete a todo</li>
@@ -477,6 +523,14 @@
 <li><code>ultralist archive [id]</code> or <code>ultralist ar [id]</code> - archive a todo</li>
 <li><code>ultralist unarchive [id]</code> or <code>ultralist uar [id]</code> - unarchive a todo</li>
 </ul>
+<h2 id="prioritizing_todos">Prioritizing/Unprioritizing todos </h2>
+<ul>
+<li><code>ultralist archive [id]</code> or <code>ultralist ar [id]</code> - archive a todo</li>
+<li><code>ultralist unarchive [id]</code> or <code>ultralist uar [id]</code> - unarchive a todo</li>
+</ul>
+<h2 id="deleting_todos">Deleting todos </h2>
+<p><code>ultralist delete [id]</code> or <code>ultralist d [id]</code> will do the job.</p>
+<p><em>Be careful!</em> once a todo is deleted, it&apos;s gone forever!</p>
 <h2 id="editing_todos">Editing todos </h2>
 <p>You can edit a todo&apos;s subject or due date The syntax is as follows:</p>
 <p><code>ultralist e [id] &lt;subject&gt; &lt;due [due]&gt;</code></p>
@@ -489,10 +543,11 @@
 <h5 id="removing-a-todos-due-date">Removing a todo&apos;s due date</h5>
 <p>You can also say <code>due none</code> to un-set an existing due date.</p>
 <p>Example: <code>ultralist e 3 due none</code>.</p>
-<h2 id="deleting_todos">Deleting todos </h2>
-<p><code>ultralist delete [id]</code> or <code>ultralist d [id]</code> will do the job.</p>
-<p><em>Be careful!</em> once a todo is deleted, it&apos;s gone forever!</p>
-<h2 id="listing-filtering-and-grouping-todos">Listing, filtering and grouping todos</h2>
+<h1 id="todo-list-management">Todo List management</h1>
+<h2 id="create_todolist">Creating a todolist </h2>
+<p>You can initialize a todolist by running <code>ultralist init</code>. This will create a <code>.todos.json</code> in the directory you are in.</p>
+<p><strong>The todolist in your home directory is special.</strong> <code>ultralist</code> will use the list in your home dir if it does not see a .todos.json in the directory you are in. This allows you to manage your main todolist file even if you are in another directory.</p>
+<h2 id="listing_todos">Listing, filtering and grouping todos </h2>
 <p><code>ultralist</code> can list todos in a variety of ways, and allows for powerful filtering and grouping.</p>
 <h5 id="basic-listing">Basic listing</h5>
 <ul>
@@ -509,11 +564,6 @@
 <li><code>ultralist l overdue</code> - show all todos that are overdue</li>
 <li><code>ultralist l due &lt;mon|tue|wed|thu|fri|sat|sun&gt;</code> - show todos due on a specific day, looking forward</li>
 </ul>
-<h5 id="filtering-todos-by-subject">Filtering todos by subject</h5>
-<ul>
-<li><code>ultralist l @pomodoro</code> - show all todos with a context of <code>@pomodoro</code>.</li>
-<li><code>ultralist l +project</code> - show all todos with a project of <code>+project</code>.</li>
-</ul>
 <h5 id="the-agenda-view">The agenda view</h5>
 <ul>
 <li><code>ultralist l agenda</code> - Show all uncomplete todos due today or that are overdue.  It does not show todos due in the future.  This is a great view to use all the time!</li>
@@ -523,9 +573,52 @@
 <li><code>ultralist l completed tod</code> - show todos that were completed today</li>
 <li><code>ultralist l completed this week</code> - show todos that were completed this week</li>
 </ul>
+<h5 id="listing-todos-by-project-or-context">Listing todos by project or context</h5>
+<ul>
+<li><code>ultralist l @pomodoro</code> - show all todos with a context of <code>@pomodoro</code>.</li>
+<li><code>ultralist l +project</code> - show all todos with a project of <code>+project</code>.</li>
+</ul>
+<p>Remember, <code>ultralist</code> is a unix tool, just like any other.  You can use <code>grep</code> to combine a complex listing with a filter.</p>
+<p>Example: <code>ultralist l due tom | grep @bob</code></p>
 <h5 id="grouping">Grouping</h5>
 <p>Todos can be grouped by project or context</p>
-
+<ul>
+<li><code>ultralist l by project</code> or <code>ultralist l by p</code> - List all todos, grouped by project. </li>
+<li><code>ultralist l by context</code> or <code>ultralist l by c</code> - List all todos, grouped by context. </li>
+</ul>
+<h5 id="real-world-examples-of-combining-groups-and-listing-filters">Real world examples of combining groups and listing filters</h5>
+<ul>
+<li><code>ultralist l agenda by project</code> - This is the command I run every day.  So often, in fact, I have an alias for it called <code>up</code>.</li>
+<li><code>ultralist l by project due tom</code> - Show all todos due tomorrow, and group them by project</li>
+<li><code>ultralist l completed tod</code> - Look back at all the todos you completed today, and feel good about yourself.</li>
+</ul>
+<h2 id="archiving_completed">Archiving completed todos </h2>
+<ul>
+<li><code>ultralist ac</code> will archive all completed todos.  </li>
+</ul>
+<p>This is great to run at the end of your day.  Since <code>ultralist</code> only lists todos that are unarchived by default, these archived todos will be off your main view.</p>
+<h2 id="gc">Garbage collection </h2>
+<ul>
+<li><code>ultralist gc</code> will delete all archived todos.</li>
+</ul>
+<p>This is a great thing to run weekly.  You&apos;ll get a bunch of low ids back, and you&apos;ll keep your <code>.todos.json</code> file small.</p>
+<h2 id="todos_json"><code>.todos.json</code> file format </h2>
+<p><code>ultralist</code> stores todos in a very simple, self-explanitory format.</p>
+<pre><code>     [{
+    &quot;id&quot;: 110,
+    &quot;subject&quot;: &quot;+toVerify did @scott put zuora alerting in place?&quot;,
+    &quot;projects&quot;: [
+      &quot;toVerify&quot;
+    ],
+    &quot;contexts&quot;: [
+      &quot;scott&quot;
+    ],
+    &quot;due&quot;: &quot;2016-05-23&quot;,
+    &quot;completed&quot;: false,
+    &quot;completedAt&quot;: null, 
+    &quot;archived&quot;: false
+  }]
+</code></pre>
                                 
                                 </section>
                             
@@ -552,14 +645,10 @@
 
             
                 
-                <a href="quickstart.html" class="navigation navigation-prev " aria-label="Previous page: Quick Start">
+                <a href="quickstart.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Quick Start">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="cli.html#create_todolist" class="navigation navigation-next " aria-label="Next page: Creating a todolist">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -568,7 +657,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Using the ultralist CLI","level":"1.3","depth":1,"next":{"title":"Creating a todolist","level":"1.3.1","depth":2,"anchor":"#create_todolist","path":"cli.md","ref":"cli.md#create_todolist","articles":[]},"previous":{"title":"Quick Start","level":"1.2","depth":1,"path":"quickstart.md","ref":"quickstart.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cli.md","mtime":"2019-02-16T19:45:40.981Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-16T11:41:52.935Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Using the ultralist CLI","level":"1.3","depth":1,"next":{"title":"Todo Management","level":"1.3.1","depth":2,"ref":"","articles":[{"title":"Adding todos","level":"1.3.1.1","depth":3,"anchor":"#adding_todos","path":"cli.md","ref":"cli.md#adding_todos","articles":[]},{"title":"Completing todos","level":"1.3.1.2","depth":3,"anchor":"#completing_todos","path":"cli.md","ref":"cli.md#completing_todos","articles":[]},{"title":"Archiving todos","level":"1.3.1.3","depth":3,"anchor":"#archiving_todos","path":"cli.md","ref":"cli.md#archiving_todos","articles":[]},{"title":"Prioritizing todos","level":"1.3.1.4","depth":3,"anchor":"#prioritizing_todos","path":"cli.md","ref":"cli.md#prioritizing_todos","articles":[]},{"title":"Deleting todos","level":"1.3.1.5","depth":3,"anchor":"#deleting_todos","path":"cli.md","ref":"cli.md#deleting_todos","articles":[]},{"title":"Editing todos","level":"1.3.1.6","depth":3,"anchor":"#editing_todos","path":"cli.md","ref":"cli.md#editing_todos","articles":[]}]},"previous":{"title":"Quick Start","level":"1.2","depth":1,"path":"quickstart.md","ref":"quickstart.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cli.md","mtime":"2019-02-17T11:13:22.566Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-16T11:41:52.935Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

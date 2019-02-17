@@ -1,11 +1,5 @@
 # Using the Ultralist CLI
 
-## Creating a todolist {#create_todolist}
-
-You can initialize a todolist by running `ultralist init`. This will create a `.todos.json` in the directory you are in.
-
-**The todolist in your home directory is special.** `ultralist` will use the list in your home dir if it does not see a .todos.json in the directory you are in. This allows you to manage your main todolist file even if you are in another directory.
-
 ## Adding todos {#adding_todos}
 
 Add a todo by running `ultralist add` or `ultralist a`, and then filling out the details of the todo.
@@ -26,7 +20,7 @@ For specific dates, you can use either `due may 2` or `due 2 may`. The month is 
 
 ![](images/adding_todos.png)
 
-## Completing/Uncompleting todos {#completinging_todos}
+## Completing/Uncompleting todos {#completing_todos}
 
 * `ultralist complete [id]` or `ultralist c [id]` - complete a todo
 * `ultralist uncomplete [id]` or `ultralist uc [id]` - un-complete a todo
@@ -35,6 +29,17 @@ For specific dates, you can use either `due may 2` or `due 2 may`. The month is 
 
 * `ultralist archive [id]` or `ultralist ar [id]` - archive a todo
 * `ultralist unarchive [id]` or `ultralist uar [id]` - unarchive a todo
+
+## Prioritizing/Unprioritizing todos {#prioritizing_todos}
+
+* `ultralist archive [id]` or `ultralist ar [id]` - archive a todo
+* `ultralist unarchive [id]` or `ultralist uar [id]` - unarchive a todo
+
+## Deleting todos {#deleting_todos}
+
+`ultralist delete [id]` or `ultralist d [id]` will do the job.
+
+_Be careful!_ once a todo is deleted, it's gone forever!
 
 ## Editing todos {#editing_todos}
 
@@ -60,15 +65,18 @@ You can also say `due none` to un-set an existing due date.
 
 Example: `ultralist e 3 due none`.
 
-## Deleting todos {#deleting_todos}
+# Todo List management
 
-`ultralist delete [id]` or `ultralist d [id]` will do the job.
+## Creating a todolist {#create_todolist}
 
-_Be careful!_ once a todo is deleted, it's gone forever!
+You can initialize a todolist by running `ultralist init`. This will create a `.todos.json` in the directory you are in.
 
-## Listing, filtering and grouping todos
+**The todolist in your home directory is special.** `ultralist` will use the list in your home dir if it does not see a .todos.json in the directory you are in. This allows you to manage your main todolist file even if you are in another directory.
+
+## Listing, filtering and grouping todos {#listing_todos}
 
 `ultralist` can list todos in a variety of ways, and allows for powerful filtering and grouping.
+
 
 ##### Basic listing
 
@@ -87,11 +95,6 @@ Ultralist supports a variety of methods to show todos that are due on a certain 
 * `ultralist l overdue` - show all todos that are overdue
 * `ultralist l due <mon|tue|wed|thu|fri|sat|sun>` - show todos due on a specific day, looking forward
 
-##### Filtering todos by subject
-
-* `ultralist l @pomodoro` - show all todos with a context of `@pomodoro`.
-* `ultralist l +project` - show all todos with a project of `+project`.
-
 ##### The agenda view
 
 * `ultralist l agenda` - Show all uncomplete todos due today or that are overdue.  It does not show todos due in the future.  This is a great view to use all the time!
@@ -101,6 +104,57 @@ Ultralist supports a variety of methods to show todos that are due on a certain 
 * `ultralist l completed tod` - show todos that were completed today
 * `ultralist l completed this week` - show todos that were completed this week
 
+##### Listing todos by project or context
+
+* `ultralist l @pomodoro` - show all todos with a context of `@pomodoro`.
+* `ultralist l +project` - show all todos with a project of `+project`.
+
+Remember, `ultralist` is a unix tool, just like any other.  You can use `grep` to combine a complex listing with a filter.
+
+Example: `ultralist l due tom | grep @bob`
+
 ##### Grouping
 
 Todos can be grouped by project or context
+
+* `ultralist l by project` or `ultralist l by p` - List all todos, grouped by project. 
+* `ultralist l by context` or `ultralist l by c` - List all todos, grouped by context. 
+
+##### Real world examples of combining groups and listing filters
+
+* `ultralist l agenda by project` - This is the command I run every day.  So often, in fact, I have an alias for it called `up`.
+* `ultralist l by project due tom` - Show all todos due tomorrow, and group them by project
+* `ultralist l completed tod` - Look back at all the todos you completed today, and feel good about yourself.
+
+## Archiving completed todos {#archiving_completed}
+
+* `ultralist ac` will archive all completed todos.  
+
+This is great to run at the end of your day.  Since `ultralist` only lists todos that are unarchived by default, these archived todos will be off your main view.
+
+## Garbage collection {#gc}
+
+* `ultralist gc` will delete all archived todos.
+
+This is a great thing to run weekly.  You'll get a bunch of low ids back, and you'll keep your `.todos.json` file small.
+
+## `.todos.json` file format {#todos_json}
+
+`ultralist` stores todos in a very simple, self-explanitory format.
+
+```
+     [{
+    "id": 110,
+    "subject": "+toVerify did @scott put zuora alerting in place?",
+    "projects": [
+      "toVerify"
+    ],
+    "contexts": [
+      "scott"
+    ],
+    "due": "2016-05-23",
+    "completed": false,
+    "completedAt": null, 
+    "archived": false
+  }]
+```
