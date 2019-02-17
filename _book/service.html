@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>What is Ultralist? · GitBook</title>
+        <title>Using Ultralist.io · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="./" />
+    <link rel="next" href="service.html" />
     
     
-    <link rel="prev" href="intro.md" />
+    <link rel="prev" href="cli.html" />
     
 
     </head>
@@ -375,7 +375,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="service.html">
+        <li class="chapter active" data-level="1.4" data-path="service.html">
             
                 <a href="service.html">
             
@@ -553,7 +553,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >What is Ultralist?</a>
+        <a href="." >Using Ultralist.io</a>
     </h1>
 </div>
 
@@ -568,60 +568,72 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="what">What is Ultralist? </h1>
-<p>Ultralist is a task management system for technical people.  It includes a command-line component that is very fast and stays out of the way.  There is also a beautiful webapp that seamlessly syncs with the command-line.</p>
-<p>Ultralist is based off of the <a href="https://en.wikipedia.org/wiki/Getting_Things_Done" target="_blank">Getting Things Done</a> system.  It has a concept of due dates, projects, and contexts.</p>
-<h1 id="installation">Installation </h1>
-<p>The <code>ultralist</code> binary is free and open-source.</p>
+                                <h1 id="what">Using Ultralist.io </h1>
+<p><a href="https://ultralist.io" target="_blank">Ultralist.io</a> is an enhancement service to the <code>ultralist</code> CLI.  With ultralist.io, you can:</p>
 <ul>
-<li>On Mac OS:  <code>brew install ultralist</code></li>
-<li>For other systems, you can get the binary directly from the <a href="https://github.com/ultralist/ultralist/releases" target="_blank">Ultralist Github releases page</a>.</li>
-<li>If you have <code>go</code> installed, you can run <code>go get github.com/ultralist/ultralist</code>.</li>
+<li>seamlessly sync your todolists to multiple computers</li>
+<li>have a slick web view of your todos</li>
+<li>gain access to <code>ultralist</code> native phone apps (coming soon).</li>
 </ul>
-<h1 id="overview">Overview </h1>
-<p>Use ultralist to organize + prioritize your tasks.  It&apos;s a super-fast binary
-that sits on the command-line and stays out of your way.</p>
-<script id="asciicast-226005" src="https://asciinema.org/a/226005.js" async></script>
-
-
-<p>Ultralist has <strong>2 major components:</strong></p>
+<p><strong>Note</strong>: While the <code>ultralist</code> CLI will always be free and open source, <code>ultralist.io</code> is currently in a free public beta, and will become a paid service at some point.</p>
+<h2 id="creating_account">Creating an account and authenticating your <code>ultralist</code> cli </h2>
+<p>There are 2 ways to create an account:</p>
 <ul>
-<li>The <code>ultralist</code> command-line app, which is free and <a href="https://github.com/ultralist/ultralist" target="_blank">open
-source</a>.</li>
-<li>The <a href="https://app.ultralist.io/login" target="_blank">ultralist.io</a> service, which includes a webapp, phone apps (coming soon),
-and seamless syncing across all devices.  </li>
+<li>Visit the <a href="https://app.ultralist.io/login" target="_blank">ultralist.io signup page</a></li>
+<li>running <code>ultralist auth</code>.</li>
 </ul>
-<p>Ultralist.io is currently in a free public beta, but will be a paid service at some point.</p>
-<h1 id="concepts">Ultralist concepts </h1>
-<p>Since Ultralist implements a version of GTD, it has similar concepts:</p>
-<h4 id="contexts">Contexts</h4>
-<p>Ultralist knows about <em>contexts</em>, which answers the question of &quot;what do I need
-in order to accomplish this?&quot;.  Contexts are denoted with an <code>@</code> symbol. </p>
-<p><strong>Examples of contexts</strong></p>
+<p>Note that if you create an account directly on ultralist.io, you&apos;ll still need to run <code>ultralist auth</code> to register your CLI with ultralist.io.</p>
+<p><code>ultralist</code> will create a directory - <code>~/.config/ultralist</code>. In that directory, it stores 2 files:</p>
 <ul>
-<li><code>chat with @bob</code></li>
-<li><code>@call garage about car repair</code></li>
-<li><code>@email my question about the project update</code></li>
+<li><code>creds.json</code> - A token that <code>ultralist</code> will use to authenticate you</li>
+<li><code>synced_lists.json</code> - This is how <code>ultralist</code> knows if a list is synced.</li>
 </ul>
-<h4 id="projects">Projects</h4>
-<p><em>Projects</em> are defined as outcomes that will require more than one action step
-to complete.  So, a project may have multiple todo items.</p>
-<p><strong>Examples of projects</strong></p>
+<p>You can always run <code>ultralist check_auth</code> to ensure you&apos;re properly authenticated.</p>
+<h2 id="sync">Syncing a list </h2>
+<p>There are a couple of ways to sync a list, depending if that list already exists or not.  </p>
+<h4 id="creating">Creating a new list and setting it up to sync </h4>
+<ol>
+<li>Ensure you&apos;re authenticated via <code>ultralist check_auth</code>.</li>
+<li>Create the list via <code>ultralist init</code></li>
+<li>Ultralist will ask if you want to sync this list with ultralist.io.  You can say <code>y</code>, and it will prompt you about which existing list you&apos;d like to sync with, or to create a new list.  </li>
+<li>Select <code>New list...</code> and give it a name.</li>
+<li>Presto, this new list is set up to sync with ultralist.io.</li>
+</ol>
+<p><img src="images/sync_list.png" alt=""></p>
+<h4 id="local_ultralist">Syncing a list that exists locally, but not on ultralist.io </h4>
+<ol>
+<li>Ensure you&apos;re authenticated via <code>ultralist check_auth</code>.</li>
+<li>Run <code>ultralist sync</code>.  <code>ultralist</code> will prompt you for the list&apos;s name.</li>
+<li>Presto, this list is now set up to sync with ultralist.io.</li>
+</ol>
+<h4 id="ultralist_local">Syncing a list that exists on ultralist.io, but not locally </h4>
+<ol>
+<li>Ensure you&apos;re authenticated via <code>ultralist check_auth</code>.</li>
+<li>In a directory that does not already have a <code>.todos.json</code> file, run <code>ultralist init</code>.  </li>
+<li><code>ultralist</code> will ask you if you want to sync this list with ultralist.io. Enter <code>y</code>.</li>
+<li>Choose the existing list you&apos;d like to sync with.</li>
+<li>Presto, the list will automatically be downloaded locally and will be set up to sync.</li>
+</ol>
+<h4 id="pulling-changes-to-a-list-on-ultralistio-locally">Pulling changes to a list on ultralist.io locally</h4>
+<p>If you have a synced list and changes were made to it on ultralist.io, you can pull those changes by running <code>ultralist sync</code>.</p>
+<h2 id="web">Opening the web view from <code>ultralist</code> </h2>
 <ul>
-<li><code>+smallTasks ping @bob about the security bulletin</code></li>
-<li><code>+mobileDev ask @george what is next on the roadmap</code></li>
+<li><code>ultralist web</code> will open up the list on ultralist.io.</li>
 </ul>
-<h4 id="due-dates">Due dates</h4>
-<p>Due dates are critical to Ultralist, and are a first-class citizen.  This is what separates Ultralist from other projects like <a href="http://todotxt.org/" target="_blank">Todo.txt</a>.</p>
-<p>Due dates are dates, without times.  They allow you to see what is on your agenda for the day.</p>
-<p>Ultralist does not try to dictate your exact schedule, and therefore a todo&apos;s
-due date does <em>not</em> include a specific time.  However, you can prioritize todos
-so that they take precedence over other todos.</p>
-<h4 id="prioritization">Prioritization</h4>
-<p>You can prioritize a todo.  This will make it show as bold in the CLI, and
-denotes that this todo is more important than others.</p>
-<h4 id="archiving">Archiving</h4>
-<p>Once todos are completed, you can archive them.  They won&apos;t show up anymore when listing todos.</p>
+<h2 id="how">How ultralist keeps lists in sync </h2>
+<p><code>ultralist sync</code> has two roles for a synced list:</p>
+<ul>
+<li>It pushes local changes to ultralist.io.</li>
+<li>It pulls remote changes from ultralist.io.</li>
+</ul>
+<p>For changes to your lists that you make locally, <code>ultralist</code> will automatically run <code>sync</code> in the background.  If you&apos;re online, these changes will update the ultralist.io list immediately.</p>
+<p>If you make changes on ultralist.io, you&apos;ll need to pull those changes locally.  I have a cron task on my machine that will pull my synced lists every 15 minutes.</p>
+<p><strong>Offline first</strong></p>
+<ul>
+<li>Syncing is designed to be offline-first and stays out of the way.  <code>ultralist</code> stores an event queue that it publishes to ultralist.io.  The ultralist.io backend uses a reconciliation algorithm that will always keep lists correctly in sync.</li>
+<li>The ultralist.io webapp uses the same event queue, and is also designed to run perfectly when offline.</li>
+</ul>
+<h1 id="webapp">The ultralist.io app </h1>
 
                                 
                                 </section>
@@ -649,12 +661,12 @@ denotes that this todo is more important than others.</p>
 
             
                 
-                <a href="intro.md" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="cli.html#todos_json" class="navigation navigation-prev " aria-label="Previous page: .todos.json file format">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="./#install" class="navigation navigation-next " aria-label="Next page: Installation">
+                <a href="service.html#creating_account" class="navigation navigation-next " aria-label="Next page: Creating an account">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -665,7 +677,7 @@ denotes that this todo is more important than others.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"What is Ultralist?","level":"1.1.1","depth":2,"next":{"title":"Installation","level":"1.1.2","depth":2,"anchor":"#install","path":"README.md","ref":"README.md#install","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"intro.md","ref":"intro.md","articles":[{"title":"What is Ultralist?","level":"1.1.1","depth":2,"anchor":"#what","path":"README.md","ref":"README.md#what","articles":[]},{"title":"Installation","level":"1.1.2","depth":2,"anchor":"#install","path":"README.md","ref":"README.md#install","articles":[]},{"title":"Overview","level":"1.1.3","depth":2,"anchor":"#overview","path":"README.md","ref":"README.md#overview","articles":[]},{"title":"Ultralist Concepts","level":"1.1.4","depth":2,"anchor":"#concepts","path":"README.md","ref":"README.md#concepts","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-02-16T11:47:51.872Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-16T11:41:52.935Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Using Ultralist.io","level":"1.4","depth":1,"next":{"title":"Creating an account","level":"1.4.1","depth":2,"anchor":"#creating_account","path":"service.md","ref":"service.md#creating_account","articles":[]},"previous":{"title":".todos.json file format","level":"1.3.2.5","depth":3,"anchor":"#todos_json","path":"cli.md","ref":"cli.md#todos_json","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"service.md","mtime":"2019-02-17T12:37:24.011Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-16T11:41:52.935Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
