@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>What is Ultralist? · GitBook</title>
+        <title>Using the ultralist CLI · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="./" />
+    <link rel="next" href="cli.html" />
     
     
-    <link rel="prev" href="intro.md" />
+    <link rel="prev" href="quickstart.html" />
     
 
     </head>
@@ -175,7 +175,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="cli.html">
+        <li class="chapter active" data-level="1.3" data-path="cli.html">
             
                 <a href="cli.html">
             
@@ -438,7 +438,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >What is Ultralist?</a>
+        <a href="." >Using the ultralist CLI</a>
     </h1>
 </div>
 
@@ -453,60 +453,78 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="what">What is Ultralist? </h1>
-<p>Ultralist is a task management system for technical people.  It includes a command-line component that is very fast and stays out of the way.  There is also a beautiful webapp that seamlessly syncs with the command-line.</p>
-<p>Ultralist is based off of the <a href="https://en.wikipedia.org/wiki/Getting_Things_Done" target="_blank">Getting Things Done</a> system.  It has a concept of due dates, projects, and contexts.</p>
-<h1 id="installation">Installation </h1>
-<p>The <code>ultralist</code> binary is free and open-source.</p>
+                                <h1 id="using-the-ultralist-cli">Using the Ultralist CLI</h1>
+<h2 id="create_todolist">Creating a todolist </h2>
+<p>You can initialize a todolist by running <code>ultralist init</code>. This will create a <code>.todos.json</code> in the directory you are in.</p>
+<p><strong>The todolist in your home directory is special.</strong> <code>ultralist</code> will use the list in your home dir if it does not see a .todos.json in the directory you are in. This allows you to manage your main todolist file even if you are in another directory.</p>
+<h2 id="adding_todos">Adding todos </h2>
+<p>Add a todo by running <code>ultralist add</code> or <code>ultralist a</code>, and then filling out the details of the todo.</p>
+<p>A <code>+project</code> or <code>@context</code> can be inserted into the todo body. Currently they can only be one word long.</p>
+<p><code>ultralist</code> expects the due date at the <em>end</em>, if there is a due date.</p>
+<h5 id="due-date-format">Due date format</h5>
+<p>For things due today or tomorrow, you can use <code>due today</code> and <code>due tomorrow</code>. You can also use <code>due tod</code> or <code>due tom</code>.</p>
+<p>For things due this week, you can use the first 3 letters of the day name. For instance, <code>due mon</code> or <code>due thu</code>. <strong><code>ultralist</code> will always look forward</strong>.  If today is a Wednesday and you specify <code>due mon</code>, the due date will be for <em>next Monday</em>.</p>
+<p>For specific dates, you can use either <code>due may 2</code> or <code>due 2 may</code>. The month is always lowercase and 3 letters.</p>
+<h5 id="examples">Examples</h5>
+<p><img src="images/adding_todos.png" alt=""></p>
+<h2 id="completinging_todos">Completing/Uncompleting todos </h2>
 <ul>
-<li>On Mac OS:  <code>brew install ultralist</code></li>
-<li>For other systems, you can get the binary directly from the <a href="https://github.com/ultralist/ultralist/releases" target="_blank">Ultralist Github releases page</a>.</li>
-<li>If you have <code>go</code> installed, you can run <code>go get github.com/ultralist/ultralist</code>.</li>
+<li><code>ultralist complete [id]</code> or <code>ultralist c [id]</code> - complete a todo</li>
+<li><code>ultralist uncomplete [id]</code> or <code>ultralist uc [id]</code> - un-complete a todo</li>
 </ul>
-<h1 id="overview">Overview </h1>
-<p>Use ultralist to organize + prioritize your tasks.  It&apos;s a super-fast binary
-that sits on the command-line and stays out of your way.</p>
-<script id="asciicast-226005" src="https://asciinema.org/a/226005.js" async></script>
-
-
-<p>Ultralist has <strong>2 major components:</strong></p>
+<h2 id="archiving_todos">Archiving/Unarchiving todos </h2>
 <ul>
-<li>The <code>ultralist</code> command-line app, which is free and <a href="https://github.com/ultralist/ultralist" target="_blank">open
-source</a>.</li>
-<li>The <a href="https://app.ultralist.io/login" target="_blank">ultralist.io</a> service, which includes a webapp, phone apps (coming soon),
-and seamless syncing across all devices.  </li>
+<li><code>ultralist archive [id]</code> or <code>ultralist ar [id]</code> - archive a todo</li>
+<li><code>ultralist unarchive [id]</code> or <code>ultralist uar [id]</code> - unarchive a todo</li>
 </ul>
-<p>Ultralist.io is currently in a free public beta, but will be a paid service at some point.</p>
-<h1 id="concepts">Ultralist concepts </h1>
-<p>Since Ultralist implements a version of GTD, it has similar concepts:</p>
-<h4 id="contexts">Contexts</h4>
-<p>Ultralist knows about <em>contexts</em>, which answers the question of &quot;what do I need
-in order to accomplish this?&quot;.  Contexts are denoted with an <code>@</code> symbol. </p>
-<p><strong>Examples of contexts</strong></p>
+<h2 id="editing_todos">Editing todos </h2>
+<p>You can edit a todo&apos;s subject or due date The syntax is as follows:</p>
+<p><code>ultralist e [id] &lt;subject&gt; &lt;due [due]&gt;</code></p>
+<h5 id="editing-a-todos-subject">Editing a todo&apos;s subject</h5>
+<p>When if you do not include <code>due [date]</code>, then just the subject will be edited.</p>
+<p>Example: <code>ultralist e 3 chat with +bob</code> will edit just the todo&apos;s subject, and leave the due date alone.</p>
+<h5 id="editing-a-todos-due-date">Editing a todo&apos;s due date</h5>
+<p>If you only pass <code>due [date]</code>, the todo&apos;s due date will be updated, and the subject will remain the same.</p>
+<p>Example: <code>ultralist e 3 due tom</code> will set the todo item with id of <code>3</code>&apos;s due date to tomorrow, and it will leave the subject alone. </p>
+<h5 id="removing-a-todos-due-date">Removing a todo&apos;s due date</h5>
+<p>You can also say <code>due none</code> to un-set an existing due date.</p>
+<p>Example: <code>ultralist e 3 due none</code>.</p>
+<h2 id="deleting_todos">Deleting todos </h2>
+<p><code>ultralist delete [id]</code> or <code>ultralist d [id]</code> will do the job.</p>
+<p><em>Be careful!</em> once a todo is deleted, it&apos;s gone forever!</p>
+<h2 id="listing-filtering-and-grouping-todos">Listing, filtering and grouping todos</h2>
+<p><code>ultralist</code> can list todos in a variety of ways, and allows for powerful filtering and grouping.</p>
+<h5 id="basic-listing">Basic listing</h5>
 <ul>
-<li><code>chat with @bob</code></li>
-<li><code>@call garage about car repair</code></li>
-<li><code>@email my question about the project update</code></li>
+<li><code>ultralist list</code> or <code>ultralist l</code> - List all unarchived todos.</li>
+<li><code>ultralist l archived</code> - List archived todos.</li>
 </ul>
-<h4 id="projects">Projects</h4>
-<p><em>Projects</em> are defined as outcomes that will require more than one action step
-to complete.  So, a project may have multiple todo items.</p>
-<p><strong>Examples of projects</strong></p>
+<p>By default, when listing todos, archived todos will be filtered out.  You must explicitly pass <code>l archived</code> to see archived todos.</p>
+<h5 id="filtering-todos-by-due-date">Filtering todos by due date</h5>
+<p>Ultralist supports a variety of methods to show todos that are due on a certain date.</p>
 <ul>
-<li><code>+smallTasks ping @bob about the security bulletin</code></li>
-<li><code>+mobileDev ask @george what is next on the roadmap</code></li>
+<li><code>ultralist l due tod</code> - show all todos due today</li>
+<li><code>ultralist l due tom</code> - show all todos due tomorrow</li>
+<li><code>ultralist l due this week</code> - show all todos due this week</li>
+<li><code>ultralist l overdue</code> - show all todos that are overdue</li>
+<li><code>ultralist l due &lt;mon|tue|wed|thu|fri|sat|sun&gt;</code> - show todos due on a specific day, looking forward</li>
 </ul>
-<h4 id="due-dates">Due dates</h4>
-<p>Due dates are critical to Ultralist, and are a first-class citizen.  This is what separates Ultralist from other projects like <a href="http://todotxt.org/" target="_blank">Todo.txt</a>.</p>
-<p>Due dates are dates, without times.  They allow you to see what is on your agenda for the day.</p>
-<p>Ultralist does not try to dictate your exact schedule, and therefore a todo&apos;s
-due date does <em>not</em> include a specific time.  However, you can prioritize todos
-so that they take precedence over other todos.</p>
-<h4 id="prioritization">Prioritization</h4>
-<p>You can prioritize a todo.  This will make it show as bold in the CLI, and
-denotes that this todo is more important than others.</p>
-<h4 id="archiving">Archiving</h4>
-<p>Once todos are completed, you can archive them.  They won&apos;t show up anymore when listing todos.</p>
+<h5 id="filtering-todos-by-subject">Filtering todos by subject</h5>
+<ul>
+<li><code>ultralist l @pomodoro</code> - show all todos with a context of <code>@pomodoro</code>.</li>
+<li><code>ultralist l +project</code> - show all todos with a project of <code>+project</code>.</li>
+</ul>
+<h5 id="the-agenda-view">The agenda view</h5>
+<ul>
+<li><code>ultralist l agenda</code> - Show all uncomplete todos due today or that are overdue.  It does not show todos due in the future.  This is a great view to use all the time!</li>
+</ul>
+<h5 id="listing-completed-todos">Listing completed todos</h5>
+<ul>
+<li><code>ultralist l completed tod</code> - show todos that were completed today</li>
+<li><code>ultralist l completed this week</code> - show todos that were completed this week</li>
+</ul>
+<h5 id="grouping">Grouping</h5>
+<p>Todos can be grouped by project or context</p>
 
                                 
                                 </section>
@@ -534,12 +552,12 @@ denotes that this todo is more important than others.</p>
 
             
                 
-                <a href="intro.md" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="quickstart.html" class="navigation navigation-prev " aria-label="Previous page: Quick Start">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="./#install" class="navigation navigation-next " aria-label="Next page: Installation">
+                <a href="cli.html#create_todolist" class="navigation navigation-next " aria-label="Next page: Creating a todolist">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -550,7 +568,7 @@ denotes that this todo is more important than others.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"What is Ultralist?","level":"1.1.1","depth":2,"next":{"title":"Installation","level":"1.1.2","depth":2,"anchor":"#install","path":"README.md","ref":"README.md#install","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"intro.md","ref":"intro.md","articles":[{"title":"What is Ultralist?","level":"1.1.1","depth":2,"anchor":"#what","path":"README.md","ref":"README.md#what","articles":[]},{"title":"Installation","level":"1.1.2","depth":2,"anchor":"#install","path":"README.md","ref":"README.md#install","articles":[]},{"title":"Overview","level":"1.1.3","depth":2,"anchor":"#overview","path":"README.md","ref":"README.md#overview","articles":[]},{"title":"Ultralist Concepts","level":"1.1.4","depth":2,"anchor":"#concepts","path":"README.md","ref":"README.md#concepts","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2019-02-16T11:47:51.872Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-16T11:41:52.935Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Using the ultralist CLI","level":"1.3","depth":1,"next":{"title":"Creating a todolist","level":"1.3.1","depth":2,"anchor":"#create_todolist","path":"cli.md","ref":"cli.md#create_todolist","articles":[]},"previous":{"title":"Quick Start","level":"1.2","depth":1,"path":"quickstart.md","ref":"quickstart.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cli.md","mtime":"2019-02-16T19:45:40.981Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-16T11:41:52.935Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
