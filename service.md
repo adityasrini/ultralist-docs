@@ -1,21 +1,21 @@
-# Using Ultralist.io {#what}
+# Using Ultralist Pro {#what}
 
-[Ultralist.io](https://ultralist.io) is an enhancement service to the `ultralist` CLI.  With ultralist.io, you can:
+[Ultralist Pro](https://ultralist.io) is an enhancement service to the `ultralist` CLI.  With Ultralist PRo, you can:
 
 * seamlessly sync your todolists to multiple computers
 * have a slick web view of your todos
 * gain access to `ultralist` native phone apps (coming soon).
 
-**Note**: While the `ultralist` CLI will always be free and open source, `ultralist.io` is currently in a free public beta, and will become a paid service at some point.
+**Note**: While the `ultralist` CLI will always be free and open source, Ultralist Pro is currently in a free public beta, and will become a paid service at some point.
 
 ## Creating an account and authenticating your `ultralist` cli {#creating_account}
 
 There are 2 ways to create an account:
 
-* Visit the [ultralist.io signup page](https://app.ultralist.io/login)
+* Visit the [Ultralist Pro signup page](https://app.ultralist.io/login)
 * running `ultralist auth`.
 
-Note that if you create an account directly on ultralist.io, you'll still need to run `ultralist auth` to register your CLI with ultralist.io.
+Note that if you create an account directly on ultralist.io, you'll still need to run `ultralist auth` to register your CLI with Ultralist Pro.
 
 `ultralist` will create a directory - `~/.config/ultralist`. In that directory, it stores 2 files:
 

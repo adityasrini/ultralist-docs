@@ -24,10 +24,10 @@ Ultralist has **2 major components:**
 
 * The `ultralist` command-line app, which is free and [open
 source](https://github.com/ultralist/ultralist).
-* The [ultralist.io](https://app.ultralist.io/login) service, which includes a webapp, phone apps (coming soon),
+* The [Ultralist Pro](https://app.ultralist.io/login) service, which includes a webapp, phone apps (coming soon),
 and seamless syncing across all devices.  
 
-Ultralist.io is currently in a free public beta, but will be a paid service at some point.
+Ultralist Pro is currently in a free public beta, but will be a paid service at some point.
 
 # Ultralist concepts {#concepts}
 
