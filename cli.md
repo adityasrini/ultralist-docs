@@ -32,8 +32,8 @@ For specific dates, you can use either `due may 2` or `due 2 may`. The month is 
 
 ## Prioritizing/Unprioritizing todos {#prioritizing_todos}
 
-* `ultralist archive [id]` or `ultralist ar [id]` - archive a todo
-* `ultralist unarchive [id]` or `ultralist uar [id]` - unarchive a todo
+* `ultralist prioritize [id]` or `ultralist p [id]` -prioritize a todo
+* `ultralist unprioritize [id]` or `ultralist up [id]` - un-prioritize a todo
 
 ## Deleting todos {#deleting_todos}
 
