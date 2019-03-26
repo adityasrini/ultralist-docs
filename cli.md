@@ -23,17 +23,17 @@ For specific dates, you can use either `due may 2` or `due 2 may`. The month is 
 ## Completing/Uncompleting todos {#completing_todos}
 
 * `ultralist complete [id]` or `ultralist c [id]` - complete a todo
-* `ultralist uncomplete [id]` or `ultralist uc [id]` - un-complete a todo
+* `ultralist complete [id] --revert` or `ultralist c [id] --revert` - un-complete a todo
 
 ## Archiving/Unarchiving todos {#archiving_todos}
 
 * `ultralist archive [id]` or `ultralist ar [id]` - archive a todo
-* `ultralist unarchive [id]` or `ultralist uar [id]` - unarchive a todo
+* `ultralist archive [id] --revert` or `ultralist ar [id] --revert` - unarchive a todo
 
 ## Prioritizing/Unprioritizing todos {#prioritizing_todos}
 
 * `ultralist prioritize [id]` or `ultralist p [id]` -prioritize a todo
-* `ultralist unprioritize [id]` or `ultralist up [id]` - un-prioritize a todo
+* `ultralist prioritize [id] --revert` or `ultralist p [id] --revert` - un-prioritize a todo
 
 ## Deleting todos {#deleting_todos}
 
@@ -128,13 +128,13 @@ Todos can be grouped by project or context
 
 ## Archiving completed todos {#archiving_completed}
 
-* `ultralist ac` will archive all completed todos.  
+* `ultralist a completed` will archive all completed todos.  
 
 This is great to run at the end of your day.  Since `ultralist` only lists todos that are unarchived by default, these archived todos will be off your main view.
 
 ## Garbage collection {#gc}
 
-* `ultralist gc` will delete all archived todos.
+* `ultralist ar gc` will delete all archived todos.
 
 This is a great thing to run weekly.  You'll get a bunch of low ids back, and you'll keep your `.todos.json` file small.
 

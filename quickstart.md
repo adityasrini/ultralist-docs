@@ -35,7 +35,7 @@ Completing a todo is done by using `ultralist complete` or `ultralist c`.
 
 Finally, after all the work has been done, you can archive the todos so they are cleared off the list.
 
-You can archive each one individually by running `ultralist ar [id]`, but since we have completed many todos today, we can run `todolist ac` instead, which will archive all completed todos.
+You can archive each one individually by running `ultralist ar [id]`, but since we have completed many todos today, we can run `todolist ar completed` instead, which will archive all completed todos.
 
 ![](images/archive_completed.png)
 

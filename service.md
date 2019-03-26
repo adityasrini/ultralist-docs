@@ -30,7 +30,7 @@ There are a couple of ways to sync a list, depending if that list already exists
 
 #### Creating a new list and setting it up to sync {#creating}
 
-1. Ensure you're authenticated via `ultralist check_auth`.
+1. Ensure you're authenticated via `ultralist auth check`.
 2. Create the list via `ultralist init`
 3. Ultralist will ask if you want to sync this list with ultralist.io.  You can say `y`, and it will prompt you about which existing list you'd like to sync with, or to create a new list.  
 4. Select `New list...` and give it a name.
@@ -40,13 +40,13 @@ There are a couple of ways to sync a list, depending if that list already exists
 
 #### Syncing a list that exists locally, but not on ultralist.io {#local_ultralist}
 
-1. Ensure you're authenticated via `ultralist check_auth`.
+1. Ensure you're authenticated via `ultralist auth check`.
 2. Run `ultralist sync`.  `ultralist` will prompt you for the list's name.
 3. Presto, this list is now set up to sync with ultralist.io.
 
 #### Syncing a list that exists on ultralist.io, but not locally {#ultralist_local}
 
-1. Ensure you're authenticated via `ultralist check_auth`.
+1. Ensure you're authenticated via `ultralist auth check`.
 2. In a directory that does not already have a `.todos.json` file, run `ultralist init`.  
 3. `ultralist` will ask you if you want to sync this list with ultralist.io. Enter `y`.
 4. Choose the existing list you'd like to sync with.

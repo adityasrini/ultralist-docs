@@ -580,17 +580,17 @@
 <h2 id="completing_todos">Completing/Uncompleting todos </h2>
 <ul>
 <li><code>ultralist complete [id]</code> or <code>ultralist c [id]</code> - complete a todo</li>
-<li><code>ultralist uncomplete [id]</code> or <code>ultralist uc [id]</code> - un-complete a todo</li>
+<li><code>ultralist complete [id] --revert</code> or <code>ultralist c [id] --revert</code> - un-complete a todo</li>
 </ul>
 <h2 id="archiving_todos">Archiving/Unarchiving todos </h2>
 <ul>
 <li><code>ultralist archive [id]</code> or <code>ultralist ar [id]</code> - archive a todo</li>
-<li><code>ultralist unarchive [id]</code> or <code>ultralist uar [id]</code> - unarchive a todo</li>
+<li><code>ultralist archive [id] --revert</code> or <code>ultralist ar [id] --revert</code> - unarchive a todo</li>
 </ul>
 <h2 id="prioritizing_todos">Prioritizing/Unprioritizing todos </h2>
 <ul>
-<li><code>ultralist archive [id]</code> or <code>ultralist ar [id]</code> - archive a todo</li>
-<li><code>ultralist unarchive [id]</code> or <code>ultralist uar [id]</code> - unarchive a todo</li>
+<li><code>ultralist prioritize [id]</code> or <code>ultralist p [id]</code> -prioritize a todo</li>
+<li><code>ultralist prioritize [id] --revert</code> or <code>ultralist p [id] --revert</code> - un-prioritize a todo</li>
 </ul>
 <h2 id="deleting_todos">Deleting todos </h2>
 <p><code>ultralist delete [id]</code> or <code>ultralist d [id]</code> will do the job.</p>
@@ -658,12 +658,12 @@
 </ul>
 <h2 id="archiving_completed">Archiving completed todos </h2>
 <ul>
-<li><code>ultralist ac</code> will archive all completed todos.  </li>
+<li><code>ultralist a completed</code> will archive all completed todos.  </li>
 </ul>
 <p>This is great to run at the end of your day.  Since <code>ultralist</code> only lists todos that are unarchived by default, these archived todos will be off your main view.</p>
 <h2 id="gc">Garbage collection </h2>
 <ul>
-<li><code>ultralist gc</code> will delete all archived todos.</li>
+<li><code>ultralist ar gc</code> will delete all archived todos.</li>
 </ul>
 <p>This is a great thing to run weekly.  You&apos;ll get a bunch of low ids back, and you&apos;ll keep your <code>.todos.json</code> file small.</p>
 <h2 id="todos_json"><code>.todos.json</code> file format </h2>
@@ -721,7 +721,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Using the ultralist CLI","level":"1.3","depth":1,"next":{"title":"Todo Management","level":"1.3.1","depth":2,"ref":"","articles":[{"title":"Adding todos","level":"1.3.1.1","depth":3,"anchor":"#adding_todos","path":"cli.md","ref":"cli.md#adding_todos","articles":[]},{"title":"Completing todos","level":"1.3.1.2","depth":3,"anchor":"#completing_todos","path":"cli.md","ref":"cli.md#completing_todos","articles":[]},{"title":"Archiving todos","level":"1.3.1.3","depth":3,"anchor":"#archiving_todos","path":"cli.md","ref":"cli.md#archiving_todos","articles":[]},{"title":"Prioritizing todos","level":"1.3.1.4","depth":3,"anchor":"#prioritizing_todos","path":"cli.md","ref":"cli.md#prioritizing_todos","articles":[]},{"title":"Deleting todos","level":"1.3.1.5","depth":3,"anchor":"#deleting_todos","path":"cli.md","ref":"cli.md#deleting_todos","articles":[]},{"title":"Editing todos","level":"1.3.1.6","depth":3,"anchor":"#editing_todos","path":"cli.md","ref":"cli.md#editing_todos","articles":[]}]},"previous":{"title":"Quick Start","level":"1.2","depth":1,"path":"quickstart.md","ref":"quickstart.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cli.md","mtime":"2019-02-17T11:13:22.566Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-01T10:46:39.425Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Using the ultralist CLI","level":"1.3","depth":1,"next":{"title":"Todo Management","level":"1.3.1","depth":2,"ref":"","articles":[{"title":"Adding todos","level":"1.3.1.1","depth":3,"anchor":"#adding_todos","path":"cli.md","ref":"cli.md#adding_todos","articles":[]},{"title":"Completing todos","level":"1.3.1.2","depth":3,"anchor":"#completing_todos","path":"cli.md","ref":"cli.md#completing_todos","articles":[]},{"title":"Archiving todos","level":"1.3.1.3","depth":3,"anchor":"#archiving_todos","path":"cli.md","ref":"cli.md#archiving_todos","articles":[]},{"title":"Prioritizing todos","level":"1.3.1.4","depth":3,"anchor":"#prioritizing_todos","path":"cli.md","ref":"cli.md#prioritizing_todos","articles":[]},{"title":"Deleting todos","level":"1.3.1.5","depth":3,"anchor":"#deleting_todos","path":"cli.md","ref":"cli.md#deleting_todos","articles":[]},{"title":"Editing todos","level":"1.3.1.6","depth":3,"anchor":"#editing_todos","path":"cli.md","ref":"cli.md#editing_todos","articles":[]}]},"previous":{"title":"Quick Start","level":"1.2","depth":1,"path":"quickstart.md","ref":"quickstart.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"cli.md","mtime":"2019-03-26T10:18:53.714Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-26T10:07:57.658Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

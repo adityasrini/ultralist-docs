@@ -593,7 +593,7 @@
 <p>There are a couple of ways to sync a list, depending if that list already exists or not.  </p>
 <h4 id="creating">Creating a new list and setting it up to sync </h4>
 <ol>
-<li>Ensure you&apos;re authenticated via <code>ultralist check_auth</code>.</li>
+<li>Ensure you&apos;re authenticated via <code>ultralist auth check</code>.</li>
 <li>Create the list via <code>ultralist init</code></li>
 <li>Ultralist will ask if you want to sync this list with ultralist.io.  You can say <code>y</code>, and it will prompt you about which existing list you&apos;d like to sync with, or to create a new list.  </li>
 <li>Select <code>New list...</code> and give it a name.</li>
@@ -602,13 +602,13 @@
 <p><img src="images/sync_list.png" alt=""></p>
 <h4 id="local_ultralist">Syncing a list that exists locally, but not on ultralist.io </h4>
 <ol>
-<li>Ensure you&apos;re authenticated via <code>ultralist check_auth</code>.</li>
+<li>Ensure you&apos;re authenticated via <code>ultralist auth check</code>.</li>
 <li>Run <code>ultralist sync</code>.  <code>ultralist</code> will prompt you for the list&apos;s name.</li>
 <li>Presto, this list is now set up to sync with ultralist.io.</li>
 </ol>
 <h4 id="ultralist_local">Syncing a list that exists on ultralist.io, but not locally </h4>
 <ol>
-<li>Ensure you&apos;re authenticated via <code>ultralist check_auth</code>.</li>
+<li>Ensure you&apos;re authenticated via <code>ultralist auth check</code>.</li>
 <li>In a directory that does not already have a <code>.todos.json</code> file, run <code>ultralist init</code>.  </li>
 <li><code>ultralist</code> will ask you if you want to sync this list with ultralist.io. Enter <code>y</code>.</li>
 <li>Choose the existing list you&apos;d like to sync with.</li>
@@ -677,7 +677,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Using Ultralist.io","level":"1.4","depth":1,"next":{"title":"Creating an account","level":"1.4.1","depth":2,"anchor":"#creating_account","path":"service.md","ref":"service.md#creating_account","articles":[]},"previous":{"title":".todos.json file format","level":"1.3.2.5","depth":3,"anchor":"#todos_json","path":"cli.md","ref":"cli.md#todos_json","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"service.md","mtime":"2019-03-01T10:44:53.951Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-01T10:46:39.425Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Using Ultralist.io","level":"1.4","depth":1,"next":{"title":"Creating an account","level":"1.4.1","depth":2,"anchor":"#creating_account","path":"service.md","ref":"service.md#creating_account","articles":[]},"previous":{"title":".todos.json file format","level":"1.3.2.5","depth":3,"anchor":"#todos_json","path":"cli.md","ref":"cli.md#todos_json","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"service.md","mtime":"2019-03-26T10:19:53.524Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-26T10:07:57.658Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
